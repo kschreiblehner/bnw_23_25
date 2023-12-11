@@ -9,4 +9,20 @@ public class Artikel {
         this.preis = preis;
         this.name = name;
     }
+
+    public float getPreis() {
+        return preis;
+    }
+
+    public void setPreis(float preis) {
+        this.preis = preis;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

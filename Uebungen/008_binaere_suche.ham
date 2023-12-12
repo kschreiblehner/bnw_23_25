@@ -1,0 +1,29 @@
+/*imperative program*/void main() {
+    int[] array = {1, 11, 33, 37, 42, 99};
+    int gesuchtesElement = 32;
+    // untere suchgrenze
+    int u = 0;
+	// obere suchgrenze
+    int o = array.length-1;
+    
+    boolean elementGefunden = false;
+    
+    while(o >= u) {
+    	int medianPosition = (o+u)/2;
+    	
+    	// element an position median gefunden
+    	if (array[medianPosition] == gesuchtesElement) {
+    		schreib("Element an Position " + medianPosition + " gefunden.");
+    		elementGefunden = true;
+    		break;
+    	} else if (array[medianPosition] < gesuchtesElement) {
+    		u = medianPosition + 1;  // suche rechts vom median
+    	} else {
+    		o = medianPosition - 1;  // suche links vom median
+    	}
+    }
+    
+    if (!elementGefunden) {
+    	schreib("Element wurde nicht gefunden.");
+    }
+}

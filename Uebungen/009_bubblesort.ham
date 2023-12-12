@@ -1,0 +1,24 @@
+/*imperative program*/void main() {
+	// zu sortierendes Array
+	int[] array = {99, 42, 11, 37, 33, 1};
+	
+	// aeussere Schleife fuer die anzahl der zu sortierenden Elemente
+	for(int j = array.length -1; j > 0; j--) {
+		// innere Schleife durchlaeuft das array einmal und tauscht elemente
+		for(int i = 0; i < j; i++) {
+			// tausche in place
+			if(array[i] > array[i+1]) {
+				array[i] = array[i] ^ array[i+1];
+				array[i+1] = array[i+1] ^ array[i];
+				array[i] = array[i] ^ array[i+1];
+			}
+		}
+	}
+		
+    // ausgabe sortiertes array
+    String s= "";
+    for(int a : array) {
+    	s += " " + a; 
+    }
+    schreib(s);
+}

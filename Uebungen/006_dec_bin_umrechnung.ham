@@ -1,0 +1,33 @@
+/*imperative program*/int x_max = 9;
+int y_max = 9;
+
+void main() {
+	int zahl = liesZahl("Dezimalzahl: ");
+	int zahlTmp = zahl;
+	int len = 0;
+	
+	while(zahlTmp > 0)	{
+		zahlTmp /= 2;
+		len++;
+	}
+	
+	int ergebnis[] = new int[len];
+	
+	for(int i = len-1; i >= 0; i--) {
+		ergebnis[i] = restDiv2(zahl);
+		// zahl /= 2;  // zahl = zahl / 2;
+		zahl >>= 1;
+	}
+	
+	// ausgabe array
+	String s = "";
+	for(int i = 0; i < ergebnis.length; i++) {
+		s += ergebnis[i];
+	}
+	schreib("" + s);			
+
+}
+
+int restDiv2(int zahl) {
+  return zahl-((zahl >> 1)<<1);
+}

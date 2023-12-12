@@ -1,0 +1,123 @@
+/*imperative program*/import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+
+void main() {
+    int[] array =  {9, 99, 42, 17, 37, 11, 0, 33};
+    int[] arraySortiert = teile(array);
+    
+    // ausgabe sortiertes array
+    String s= "";
+    for(int a : arraySortiert) {
+    	s += " " + a; 
+    }
+    schreib(s);
+    
+    // mit listen
+    List<Integer> list = new ArrayList<Integer>();
+    for(int a : array) {
+    	list.add(a);
+    }
+    list = teileMitListen(list);
+    s= "";
+    for(Integer a : list) {
+    	s += " " + a; 
+    }
+    schreib(s);
+}
+
+int[] teile(int[] arr) {
+	int pivot = arr.length/2;
+	
+	if (arr.length > 1) {
+		int[] links = new int[arr.length-1];
+		int[] rechts = new int[arr.length-1];
+		
+		int currentIndexLinks = 0;
+		int currentIndexRechts = 0;
+		
+		for(int i = 0; i < arr.length; i++) {
+			if(i == pivot) {
+			} else if (arr[i] < arr[pivot]) {
+				// links = links + arr[i]
+				links[currentIndexLinks] = arr[i];
+				currentIndexLinks++;
+			} else {
+				// rechts = rechts + arr[i]
+				rechts[currentIndexRechts] = arr[i];
+				currentIndexRechts++;
+			}
+		}
+		// lösche leere positionen im array.
+		// schrumpfe array groesse auf benoetigte anzahl elemente
+		int[] linksNeu = new int[currentIndexLinks];
+		int[] rechtsNeu = new int[currentIndexRechts];
+				
+		for(int i = 0; i < currentIndexLinks; i++) {
+			linksNeu[i] = links[i];
+		}
+
+		for(int i = 0; i < currentIndexRechts; i++) {
+			rechtsNeu[i] = rechts[i];
+		}
+		
+		links = teile(linksNeu);
+		rechts = teile(rechtsNeu);
+		
+		// herrsche 
+		int[] neuesArray = new int[arr.length];
+		// anfuegen links
+		for(int i = 0; i < links.length; i++) {
+			neuesArray[i] = links[i];
+		}
+		
+		// anfuegen pivot
+		neuesArray[links.length] = arr[pivot];
+		
+		// anfuegen rechts
+		for(int i = 0; i < rechts.length; i++) {
+			neuesArray[links.length+1+i] = rechts[i];
+		}
+		
+		return neuesArray;
+	} else {
+		return arr;
+	}
+}
+
+List<Integer> teileMitListen(List<Integer> arr) {
+	int pivot = arr.size()/2;
+	
+	if (arr.size() > 1) {
+		List<Integer> links = new ArrayList<Integer>();
+		List<Integer> rechts = new ArrayList<Integer>();
+		
+		for(int i = 0; i < arr.size(); i++) {
+			if(i == pivot) {
+			} else if (arr.get(i) < arr.get(pivot)) {
+				// links = links + arr[i]
+				links.add(arr.get(i));
+			} else {
+				// rechts = rechts + arr[i]
+				rechts.add(arr.get(i));
+			}
+		}		
+		links = teileMitListen(links);
+		rechts = teileMitListen(rechts);
+		
+		// herrsche 
+		List<Integer> neuesArray = new ArrayList<Integer>();
+		// anfuegen links
+		neuesArray.addAll(links);
+		
+		// anfuegen pivot
+		neuesArray.add(arr.get(pivot));
+		
+		// anfuegen rechts
+		neuesArray.addAll(rechts);
+		
+		return neuesArray;
+	} else {
+		return arr;
+	}
+}

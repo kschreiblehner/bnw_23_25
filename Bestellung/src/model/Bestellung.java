@@ -42,7 +42,7 @@ public class Bestellung {
     }
 
     public int getBestellnummer() {
-        return bestellnummer;
+        return this.bestellnummer;
     }
 
     public void setBestellnummer(int bestellnummer) {
@@ -50,7 +50,7 @@ public class Bestellung {
     }
 
     public float getGesamtPreis() {
-        return gesamtPreis;
+        return this.gesamtPreis;
     }
 
     public void setGesamtPreis(float gesamtPreis) {
@@ -58,7 +58,7 @@ public class Bestellung {
     }
 
     public float getRabatt() {
-        return rabatt;
+        return this.rabatt;
     }
 
     public void setRabatt(float rabatt) {
@@ -70,7 +70,7 @@ public class Bestellung {
     }
 
     public Artikel[] getArtikel() {
-        return artikel;
+        return this.artikel;
     }
 
     public void setArtikel(Artikel[] artikel) {
@@ -82,7 +82,7 @@ public class Bestellung {
     }
 
     public int getLastArtikelPosition() {
-        return lastArtikelPosition;
+        return this.lastArtikelPosition;
     }
 
     public void setLastArtikelPosition(int lastArtikelPosition) {

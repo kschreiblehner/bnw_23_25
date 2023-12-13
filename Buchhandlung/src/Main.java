@@ -16,25 +16,25 @@ public class Main {
         author1.vorname = "W.";*/
         Author author1 = new Author(1, "Gellert", "W.");
 
-        System.out.println(author1.authorId);
-        System.out.println(author1.nachname);
-        System.out.println(author1.vorname);
+        System.out.println(author1.getAuthorId());
+        System.out.println(author1.getNachname());
+        System.out.println(author1.getVorname());
 
         // Author author2 = new Author(); // umschreiben
         Author author2;  // Erstelle Variable vom Typ Author mit dem Name author2
         author2 = new Author(2, "Kuestner", "Dr. H.");  // Erstelle ein Objekt vom Typ Author und schreibe es in die Variable author2
 
-        System.out.println(author2.authorId);
-        System.out.println(author2.nachname);
-        System.out.println(author2.vorname);
+        System.out.println(author2.getAuthorId());
+        System.out.println(author2.getNachname());
+        System.out.println(author2.getVorname());
 
         Preis preiskategorie1 = new Preis(1, 129.99f);  // this = 6ab5c3
 /*      Preis preiskategorie1 = new Preis();
         preiskategorie1.preiskategorie = 1;
         preiskategorie1.preis = 129.99f;*/
 
-        System.out.println(preiskategorie1.preiskategorie);
-        System.out.println(preiskategorie1.preis);
+        System.out.println(preiskategorie1.getPreiskategorie());
+        System.out.println(preiskategorie1.getPreis());
 
         Preis preiskategorie2 = new Preis(2, 89.99f);  // this = 1a2b3c
         /*
@@ -42,8 +42,8 @@ public class Main {
         preiskategorie2.preiskategorie = 2;
         preiskategorie2.preis = 89.99f;*/
 
-        System.out.println(preiskategorie2.preiskategorie);
-        System.out.println(preiskategorie2.preis);
+        System.out.println(preiskategorie2.getPreiskategorie());
+        System.out.println(preiskategorie2.getPreis());
 
         Preis preiskategorie3 = new Preis(3, 59.99f);  // this = abc123
 
@@ -51,8 +51,8 @@ public class Main {
         preiskategorie3.preiskategorie = 3;
         preiskategorie3.preis = 59.99f;*/
 
-        System.out.println(preiskategorie3.preiskategorie);
-        System.out.println(preiskategorie3.preis);
+        System.out.println(preiskategorie3.getPreiskategorie());
+        System.out.println(preiskategorie3.getPreis());
 
         Buch buch1 = new Buch("111-11-1111111-1",
                 "Die kleine Enzyklopaedie der Mathematik",

@@ -1,25 +1,65 @@
 package model;
 
 public class Buch {
-    public String isbn;
-    public String titel;
-    public Author author;  // SQL: REFERENCES author(authorid)
-    public Author coauthor;  // SQL: REFERENCES author(authorid)
-    public Preis preiskategorie;  // SQL: REFERENCES preis(preiskategorie)
+    private String isbn;
+    private String titel;
+    private Author author;  // SQL: REFERENCES author(authorid)
+    private Author coauthor;  // SQL: REFERENCES author(authorid)
+    private Preis preiskategorie;  // SQL: REFERENCES preis(preiskategorie)
 
     public Buch(String isbn, String titel, Author author, Preis preiskategorie) {
-        this.isbn = isbn;
-        this.titel = titel;
-        this.author = author;
-        this.coauthor = null;
-        this.preiskategorie = preiskategorie;
+        this.setIsbn(isbn);
+        this.setTitel(titel);
+        this.setAuthor(author);
+        this.setCoauthor(null);
+        this.setPreiskategorie(preiskategorie);
     }
 
     public Buch(String isbn, String titel, Author author, Author coauthor, Preis preiskategorie) {
+        this.setIsbn(isbn);
+        this.setTitel(titel);
+        this.setAuthor(author);
+        this.setCoauthor(coauthor);
+        this.setPreiskategorie(preiskategorie);
+    }
+
+    public String getIsbn() {
+        return this.isbn;
+    }
+
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getTitel() {
+        return this.titel;
+    }
+
+    public void setTitel(String titel) {
         this.titel = titel;
+    }
+
+    public Author getAuthor() {
+        return this.author;
+    }
+
+    public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public Author getCoauthor() {
+        return this.coauthor;
+    }
+
+    public void setCoauthor(Author coauthor) {
         this.coauthor = coauthor;
+    }
+
+    public Preis getPreiskategorie() {
+        return this.preiskategorie;
+    }
+
+    public void setPreiskategorie(Preis preiskategorie) {
         this.preiskategorie = preiskategorie;
     }
 }

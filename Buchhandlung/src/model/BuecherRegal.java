@@ -33,14 +33,15 @@ public class BuecherRegal {
     // erster Index ist das Fach
     // zweiter Index ist die Position im Fach
     private Buch[][] buecher;
-    int anzahlFaecher;
-    int anzahlBuecherProFach;
+    private int anzahlFaecher;
+    private int anzahlBuecherProFach;
 
     public BuecherRegal(int anzahlFaecher, int anzahlBuecherProFach) {
 
-        this.anzahlFaecher = anzahlFaecher;
-        this.anzahlBuecherProFach = anzahlBuecherProFach;
-        this.buecher = new Buch[anzahlFaecher][anzahlBuecherProFach];
+        this.setAnzahlFaecher(anzahlFaecher);
+        this.setAnzahlBuecherProFach(anzahlBuecherProFach);
+
+        this.setBuecher(new Buch[anzahlFaecher][anzahlBuecherProFach]);
     }
 
     public boolean insertBook(Buch buch, int fach, int position) {
@@ -71,10 +72,46 @@ public class BuecherRegal {
             for(int j = 0; j < this.anzahlBuecherProFach; j++) {
                 if (this.buecher[i][j] != null) {
                     /*              --vom Typ Buch  -- -- Preis    -- -- Wert in Klasse preis --       */
-                    summe = summe + this.buecher[i][j].preiskategorie.preis;
+                    summe = summe + this.buecher[i][j].getPreiskategorie().getPreis();
                 }
             }
         }
         return summe;
+    }
+
+    public Buch[][] getBuecher() {
+        return this.buecher;
+    }
+
+    public void setBuecher(Buch[][] buecher) {
+        if (buecher.length <= anzahlFaecher && buecher[0].length <= anzahlBuecherProFach) {
+            this.buecher = buecher;
+        } else {
+            System.err.println("Array Dimensionen passen nicht.");
+        }
+    }
+
+    public int getAnzahlFaecher() {
+        return this.anzahlFaecher;
+    }
+
+    public void setAnzahlFaecher(int anzahlFaecher) {
+        if (anzahlFaecher > 0) {
+            this.anzahlFaecher = anzahlFaecher;
+        } else {
+            System.err.println("Anzahl Faecher muss groesser 0 sein.");
+        }
+    }
+
+    public int getAnzahlBuecherProFach() {
+        return this.anzahlBuecherProFach;
+    }
+
+    public void setAnzahlBuecherProFach(int anzahlBuecherProFach) {
+        if (anzahlBuecherProFach > 0) {
+            this.anzahlBuecherProFach = anzahlBuecherProFach;
+        } else {
+            System.err.println("Anzahl Buecher pro Fach muss groesser 0 sein.");
+        }
     }
 }

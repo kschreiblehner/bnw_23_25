@@ -25,7 +25,7 @@ public class Bestellung {
 
         for(int i = 0; i < artikel.length; i++) {
             if (artikel[i] != null) {
-                summe += artikel[i].preis;
+                summe += artikel[i].getPreis();
             }
         }
         return summe;
@@ -34,7 +34,7 @@ public class Bestellung {
     public boolean addArtikel(Artikel artikel) {
         if (this.lastArtikelPosition < this.artikel.length-1) {
             this.artikel[++this.lastArtikelPosition] = artikel;  // fuege den neuen artikel ein
-            this.gesamtPreis += artikel.preis;  // erhoehe automatisch den Gesamtpreis
+            this.gesamtPreis += artikel.getPreis();  // erhoehe automatisch den Gesamtpreis
             return true;
         } else {
             return false;

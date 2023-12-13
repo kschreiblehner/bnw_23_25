@@ -6,7 +6,7 @@ public class Bestellung {
     private float rabatt;
     private Artikel[] artikel;
 
-    // Position des zuletzt eingefuegten Artikels
+    // Position des zuletzt eingefuegten Artikels (beginnt bei -1)
     private int lastArtikelPosition;
 
     public Bestellung(int bestellnummer) {

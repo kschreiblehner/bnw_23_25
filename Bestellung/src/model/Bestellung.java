@@ -1,22 +1,22 @@
 package model;
 
 public class Bestellung {
-    int bestellnummer;
-    float gesamtPreis;
-    float rabatt;
-    Artikel[] artikel;
+    private int bestellnummer;
+    private float gesamtPreis;
+    private float rabatt;
+    private Artikel[] artikel;
 
     // Position des zuletzt eingefuegten Artikels
-    int lastArtikelPosition;
+    private int lastArtikelPosition;
 
     public Bestellung(int bestellnummer) {
         this.bestellnummer = bestellnummer;
         // Gesamtpreis sollte initial gleich 0 sein.
         this.gesamtPreis = 0.f;
         // Rabatt gibt es nicht
-        this.rabatt = 0.f;
+        this.setRabatt(0.f);
         // Es sind maximal 50 Artikel erlaubt
-        this.artikel = new Artikel[50];
+        this.setArtikel(new Artikel[50]);
         this.lastArtikelPosition = -1;
     }
 
@@ -41,7 +41,51 @@ public class Bestellung {
         }
     }
 
+    public int getBestellnummer() {
+        return bestellnummer;
+    }
+
+    public void setBestellnummer(int bestellnummer) {
+        this.bestellnummer = bestellnummer;
+    }
+
     public float getGesamtPreis() {
-        return this.gesamtPreis;
+        return gesamtPreis;
+    }
+
+    public void setGesamtPreis(float gesamtPreis) {
+        this.gesamtPreis = gesamtPreis;
+    }
+
+    public float getRabatt() {
+        return rabatt;
+    }
+
+    public void setRabatt(float rabatt) {
+        if (rabatt >= 0.f && rabatt <= 1.0f) {
+            this.rabatt = rabatt;
+        } else {
+            System.err.println("Rabatt muss im Intervall [0,1] sein.");
+        }
+    }
+
+    public Artikel[] getArtikel() {
+        return artikel;
+    }
+
+    public void setArtikel(Artikel[] artikel) {
+        if (artikel.length <= 50) {
+            this.artikel = artikel;
+        } else {
+            System.err.println("Maximale Anzahl Artikel ist gleich 50.");
+        }
+    }
+
+    public int getLastArtikelPosition() {
+        return lastArtikelPosition;
+    }
+
+    public void setLastArtikelPosition(int lastArtikelPosition) {
+        this.lastArtikelPosition = lastArtikelPosition;
     }
 }

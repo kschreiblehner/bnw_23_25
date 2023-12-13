@@ -6,12 +6,17 @@ public class Artikel {
     private String name;
 
     public Artikel(float preis, String name) {
-        this.preis = preis;
+//        this.preis = preis;
+        this.setPreis(preis);
         this.name = name;
     }
 
     public void setPreis(float preis) {
-        this.preis = preis;
+        if (preis > 0.f) {
+            this.preis = preis;
+        } else {
+            System.err.println("Der Preis muss groesser 0 sein.");
+        }
     }
 
     public float getPreis() {

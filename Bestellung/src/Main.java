@@ -11,7 +11,7 @@ public class Main {
         Artikel artikel4 = new Artikel(7.99f, "Artikel 4");
         Artikel artikel5 = new Artikel(1.99f, "Artikel 5");
 
-        artikel1.setPreis(42.42f);
+        artikel1.setPreis(-42.42f);
         System.out.println(artikel1.getPreis());
 
 

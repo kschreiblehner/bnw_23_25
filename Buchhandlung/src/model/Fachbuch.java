@@ -1,15 +1,16 @@
 package model;
 
 import java.util.List;
+import java.util.Map;
 
 public class Fachbuch extends Buch {
     private String fachrichtung;
     private String thema;
     private String auflage;
-    private List<String> glossar;
+    private Map<String, String> glossar;
 
     public Fachbuch(String isbn, String titel, Author author, Preis preiskategorie,
-                    String fachrichtung, String thema, String auflage, List<String> glossar) {
+                    String fachrichtung, String thema, String auflage, Map<String, String> glossar) {
         super(isbn,titel,author,preiskategorie);
         this.setFachrichtung(fachrichtung);
         this.setThema(thema);
@@ -19,7 +20,7 @@ public class Fachbuch extends Buch {
 
     public Fachbuch(String isbn, String titel, Author author, Author coauthor,
                     Preis preiskategorie, String fachrichtung, String thema,
-                    String auflage, List<String> glossar) {
+                    String auflage, Map<String, String> glossar) {
         super(isbn,titel,author, coauthor, preiskategorie);
         this.setFachrichtung(fachrichtung);
         this.setThema(thema);
@@ -51,12 +52,16 @@ public class Fachbuch extends Buch {
         this.auflage = auflage;
     }
 
-    public List<String> getGlossar() {
+    public Map<String, String> getGlossar() {
         return this.glossar;
     }
 
-    public void setGlossar(List<String> glossar) {
+    public void setGlossar(Map<String, String> glossar) {
         this.glossar = glossar;
+    }
+
+    public void addToGlossar(String word, String description) {
+        this.glossar.put(word, description);
     }
 
     public String toString() {

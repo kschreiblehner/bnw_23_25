@@ -1,5 +1,7 @@
 import model.*;
 
+import java.util.HashMap;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -78,6 +80,19 @@ public class Main {
                 "Klopapier",
                 "Disney");
 
+        Fachbuch fachbuch = new Fachbuch("333-33-333333-3",
+                "Weihnachten mit Minnie und Mickey",
+                author1,
+                author2,
+                preiskategorie1,
+                "Programmierung",
+                "Java",
+                "8",
+                new HashMap<>());
+
+        fachbuch.addToGlossar("int", "int ist ein primitiver Datentyp für ganzzahlige Werte.");
+        fachbuch.addToGlossar("double", "double ist ein primitver Datentyp für Flieskommazahlen nach IEEE 754.");
+
         BuecherRegal regal1 = new BuecherRegal(5, 10);
         boolean buch1infach3position2 = regal1.insertBook(buch1, 3, 2);
         System.out.println(buch1infach3position2);
@@ -85,6 +100,7 @@ public class Main {
         System.out.println(regal1.insertBook(buch1, 5, 11));
         System.out.println(regal1.insertBook(buch1, 4, 11));
         System.out.println(regal1.insertBook(comic1, 0, 4));
+        System.out.println(regal1.insertBook(fachbuch, 0, 2));
 
         System.out.println(regal1.berechneBuecherWert());
 

@@ -114,4 +114,17 @@ public class BuecherRegal {
             System.err.println("Anzahl Buecher pro Fach muss groesser 0 sein.");
         }
     }
+
+    public String toString() {
+        String s = "";
+        for(int i = 0; i < this.getAnzahlFaecher(); i++) {
+            for(int j = 0; j < this.getAnzahlBuecherProFach(); j++) {
+                if (this.getBuecher()[i][j] != null) {
+                    s += "\n\nDas Buch im Fach " + i + " an der Position " + j + " ist: \n"
+                            + this.getBuecher()[i][j];
+                }
+            }
+        }
+        return s;
+    }
 }

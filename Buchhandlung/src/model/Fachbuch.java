@@ -58,4 +58,13 @@ public class Fachbuch extends Buch {
     public void setGlossar(List<String> glossar) {
         this.glossar = glossar;
     }
+
+    public String toString() {
+        return super.toString() + "\n" +
+                "Fachrichtung: " + this.getFachrichtung() + "\n"
+                + "Auflage: " + this.getAuflage() + "\n"
+                + "Thema: " + this.getThema() + "\n"
+                + "Glossar: " + this.getGlossar();
+    }
+
 }

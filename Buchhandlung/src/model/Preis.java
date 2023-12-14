@@ -30,4 +30,9 @@ public class Preis {
             System.err.println("Preis muss groesser als 0 sein.");
         }
     }
+
+    public String toString() {
+        return "Preiskategorie: " + this.getPreiskategorie() + "\n" +
+                "Preis: " + this.getPreis();
+    }
 }

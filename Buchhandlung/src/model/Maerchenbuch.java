@@ -35,4 +35,10 @@ public class Maerchenbuch extends Kinderbuch {
     public void setZeitraum(Date[] zeitraum) {
         this.zeitraum = zeitraum;
     }
+
+    public String toString() {
+        return super.toString() + "\n" +
+                "Ursprung: " + this.getUrsprung() + "\n"
+                + "Zeitraum: " + this.getZeitraum()[0] + " bis " + this.getZeitraum()[1];
+    }
 }

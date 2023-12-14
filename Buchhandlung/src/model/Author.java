@@ -36,6 +36,7 @@ public class Author {
     }
 
     public String toString() {
-        return this.getVorname() + " " + this.getNachname();
+
+        return "Author: " + this.getVorname() + " " + this.getNachname();
     }
 }

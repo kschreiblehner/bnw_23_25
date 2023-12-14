@@ -1,31 +1,31 @@
 package model;
 
 public class Kinderbuch extends Buch {
-    protected int alterfreigabe;
+    protected int altersfreigabe;
     protected String material;
 
     public Kinderbuch(String isbn, String titel, Author author, Preis preiskategorie,
                       int alterfreigabe, String material) {
         super(isbn,titel,author,preiskategorie);
-        this.setAlterfreigabe(alterfreigabe);
+        this.setAltersfreigabe(alterfreigabe);
         this.setMaterial(material);
     }
 
     public Kinderbuch(String isbn, String titel, Author author, Author coauthor, Preis preiskategorie,
-                      int alterfreigabe, String material) {
+                      int altersfreigabe, String material) {
         super(isbn, titel, author, coauthor, preiskategorie);
-        this.setAlterfreigabe(alterfreigabe);
+        this.setAltersfreigabe(altersfreigabe);
         this.setMaterial(material);
     }
 
     public void vorlesenLassen() {}
 
-    public int getAlterfreigabe() {
-        return this.alterfreigabe;
+    public int getAltersfreigabe() {
+        return this.altersfreigabe;
     }
 
-    public void setAlterfreigabe(int alterfreigabe) {
-        this.alterfreigabe = alterfreigabe;
+    public void setAltersfreigabe(int alterfreigabe) {
+        this.altersfreigabe = altersfreigabe;
     }
 
     public String getMaterial() {
@@ -38,7 +38,7 @@ public class Kinderbuch extends Buch {
 
     public String toString() {
         return super.toString() + "\n" +
-                "Altersfreigabe: " + this.getAlterfreigabe() + "\n" +
+                "Altersfreigabe: " + this.getAltersfreigabe() + "\n" +
                 "Material: " + this.getMaterial();
     }
 }

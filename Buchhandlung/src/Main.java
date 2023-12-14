@@ -1,7 +1,4 @@
-import model.Author;
-import model.BuecherRegal;
-import model.Preis;
-import model.Buch;
+import model.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -19,6 +16,7 @@ public class Main {
         System.out.println(author1.getAuthorId());
         System.out.println(author1.getNachname());
         System.out.println(author1.getVorname());
+
 
         // Author author2 = new Author(); // umschreiben
         Author author2;  // Erstelle Variable vom Typ Author mit dem Name author2
@@ -71,14 +69,25 @@ public class Main {
                 author2,
                 preiskategorie2);
 
+        Buch comic1 = new Comic("333-33-333333-3",
+                "Weihnachten mit Minnie und Mickey",
+                author1,
+                author2,
+                preiskategorie1,
+                0,
+                "Klopapier",
+                "Disney");
+
         BuecherRegal regal1 = new BuecherRegal(5, 10);
         boolean buch1infach3position2 = regal1.insertBook(buch1, 3, 2);
         System.out.println(buch1infach3position2);
         System.out.println(regal1.insertBook(buch2, 1, 0));
         System.out.println(regal1.insertBook(buch1, 5, 11));
         System.out.println(regal1.insertBook(buch1, 4, 11));
+        System.out.println(regal1.insertBook(comic1, 0, 4));
 
         System.out.println(regal1.berechneBuecherWert());
-    }
 
+        System.out.println(regal1);
+    }
 }

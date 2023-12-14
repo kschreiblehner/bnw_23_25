@@ -10,8 +10,8 @@ public class Comic extends Kinderbuch{
         this.setStil(stil);
     }
     public Comic(String isbn, String titel, Author author, Author coauthor, Preis preiskategorie,
-                 int alterfreigabe, String material, String stil) {
-        super(isbn, titel, author, coauthor, preiskategorie, alterfreigabe, material);
+                 int altersfreigabe, String material, String stil) {
+        super(isbn, titel, author, coauthor, preiskategorie, altersfreigabe, material);
         this.setStil(stil);
     }
 
@@ -21,5 +21,10 @@ public class Comic extends Kinderbuch{
 
     public void setStil(String stil) {
         this.stil = stil;
+    }
+
+    public String toString() {
+        return super.toString() + "\n" +
+                "Stil: " + this.getStil();
     }
 }

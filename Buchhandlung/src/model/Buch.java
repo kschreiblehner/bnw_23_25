@@ -1,11 +1,11 @@
 package model;
 
 public class Buch {
-    private String isbn;
-    private String titel;
-    private Author author;  // SQL: REFERENCES author(authorid)
-    private Author coauthor;  // SQL: REFERENCES author(authorid)
-    private Preis preiskategorie;  // SQL: REFERENCES preis(preiskategorie)
+    protected String isbn;
+    protected String titel;
+    protected Author author;  // SQL: REFERENCES author(authorid)
+    protected Author coauthor;  // SQL: REFERENCES author(authorid)
+    protected Preis preiskategorie;  // SQL: REFERENCES preis(preiskategorie)
 
     public Buch(String isbn, String titel, Author author, Preis preiskategorie) {
         this.setIsbn(isbn);

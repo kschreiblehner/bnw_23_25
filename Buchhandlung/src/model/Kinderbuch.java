@@ -35,4 +35,10 @@ public class Kinderbuch extends Buch {
     public void setMaterial(String material) {
         this.material = material;
     }
+
+    public String toString() {
+        return super.toString() + "\n" +
+                "Altersfreigabe: " + this.getAlterfreigabe() + "\n" +
+                "Material: " + this.getMaterial();
+    }
 }

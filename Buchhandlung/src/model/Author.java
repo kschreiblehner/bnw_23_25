@@ -34,4 +34,8 @@ public class Author {
     public void setVorname(String vorname) {
         this.vorname = vorname;
     }
+
+    public String toString() {
+        return this.getVorname() + " " + this.getNachname();
+    }
 }

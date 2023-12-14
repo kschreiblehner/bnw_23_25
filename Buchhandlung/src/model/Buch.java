@@ -62,4 +62,12 @@ public class Buch {
     public void setPreiskategorie(Preis preiskategorie) {
         this.preiskategorie = preiskategorie;
     }
+
+    public String toString() {
+        return "ISBN: " + this.getIsbn() + "\n" +
+                "Titel: " + this.getTitel() + "\n" +
+                "Author: " + this.getAuthor() + "\n" +
+                "Co-Author: " + this.getCoauthor() + "\n" +
+                "Preiskategorie: " + this.getPreiskategorie();
+    }
 }

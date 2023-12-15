@@ -6,9 +6,11 @@ import java.util.Map;
 public class Rechnung {
 
     private Bestellung bestellung;
+    // key: Artikel; value: Anzahl der Artikel
     private Map<Artikel, Integer> positionen;
     private float gesamtpreisMitRabatt = 0.f;
     private float gesamtpreisMitUst = 0.f;
+    // key: Ust.-satz; value: Summe der Umsatzsteuer fuer diesen Ust.-Satz
     private Map<Float, Double> ust = new HashMap<>();
 
 

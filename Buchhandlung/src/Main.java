@@ -71,6 +71,7 @@ public class Main {
                 author2,
                 preiskategorie2);
 
+
         Buch comic1 = new Comic("333-33-333333-3",
                 "Weihnachten mit Minnie und Mickey",
                 author1,

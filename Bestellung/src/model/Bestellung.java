@@ -1,13 +1,13 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bestellung {
     private int bestellnummer;
     private float gesamtPreis;
     private float rabatt;
-    private Artikel[] artikel;
-
-    // Position des zuletzt eingefuegten Artikels (beginnt bei -1)
-    private int lastArtikelPosition;
+    private List<Artikel> artikel;
 
     public Bestellung(int bestellnummer) {
         this.bestellnummer = bestellnummer;
@@ -16,29 +16,21 @@ public class Bestellung {
         // Rabatt gibt es nicht
         this.setRabatt(0.f);
         // Es sind maximal 50 Artikel erlaubt
-        this.setArtikel(new Artikel[50]);
-        this.lastArtikelPosition = -1;
+        this.setArtikel(new ArrayList<Artikel>());
     }
 
     public float berechneGesamtPreis() {
         float summe = 0.f;
 
-        for(int i = 0; i < artikel.length; i++) {
-            if (artikel[i] != null) {
-                summe += artikel[i].getPreis();
-            }
+        for(Artikel a : this.getArtikel()) {
+            summe += a.getPreis();
         }
         return summe;
     }
 
-    public boolean addArtikel(Artikel artikel) {
-        if (this.lastArtikelPosition < this.artikel.length-1) {
-            this.artikel[++this.lastArtikelPosition] = artikel;  // fuege den neuen artikel ein
-            this.gesamtPreis += artikel.getPreis();  // erhoehe automatisch den Gesamtpreis
-            return true;
-        } else {
-            return false;
-        }
+    public void addArtikel(Artikel artikel) {
+        this.artikel.add(artikel);
+        this.gesamtPreis += artikel.getPreis();
     }
 
     public int getBestellnummer() {
@@ -69,23 +61,23 @@ public class Bestellung {
         }
     }
 
-    public Artikel[] getArtikel() {
+    public List<Artikel> getArtikel() {
         return this.artikel;
     }
 
-    public void setArtikel(Artikel[] artikel) {
-        if (artikel.length <= 50) {
-            this.artikel = artikel;
-        } else {
-            System.err.println("Maximale Anzahl Artikel ist gleich 50.");
+    public void setArtikel(List<Artikel> artikel) {
+        this.artikel = artikel;
+    }
+
+    public String toString() {
+        String s = "";
+        s += "Bestellnummer: " + this.getBestellnummer() + "\n";
+        s += "Artikel:\n";
+        for (Artikel a : this.getArtikel()) {
+            s += "\t" + a + "\n";
         }
-    }
-
-    public int getLastArtikelPosition() {
-        return this.lastArtikelPosition;
-    }
-
-    public void setLastArtikelPosition(int lastArtikelPosition) {
-        this.lastArtikelPosition = lastArtikelPosition;
+        s += "Rabatt: " + this.getRabatt() + "\n";
+        s += "Gesamtpreis: " + this.getGesamtPreis() + "\n";
+        return s;
     }
 }

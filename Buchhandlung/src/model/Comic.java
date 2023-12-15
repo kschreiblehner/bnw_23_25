@@ -23,6 +23,7 @@ public class Comic extends Kinderbuch{
         this.stil = stil;
     }
 
+
     public String toString() {
         return super.toString() + "\n" +
                 "Stil: " + this.getStil();

@@ -10,9 +10,9 @@ public class Main3 {
 * (index 2) Geschenk C: Wert = 3, Gewicht = 10
 * */
         int[] wert = {1, 2, 3};
-        int[] gewicht = {5, 7, 10};
+        int[] gewicht = {100, 110, 60};
 
-        int maximalgewicht = 25;
+        int maximalgewicht = 200;
 
         int[][] tabelle = new int[maximalgewicht+1][wert.length+1];
 
@@ -42,9 +42,12 @@ public class Main3 {
 //                    } else {
 //                        tabelle[zeile][spalte] = tabelle[zeile][spalte-1];
 //                    }
-                }
+                } else {
+		            tabelle[zeile][spalte] = tabelle[zeile][spalte-1];
+		        }
             }
         }
+
         for (int j = 0; j < maximalgewicht+1; j++) {
             System.out.print(j + "\t");
             for (int i = 0; i < wert.length + 1; i++) {
